@@ -58,8 +58,7 @@ function initDouban() {
     // 设置豆瓣开关的初始状态
     const doubanToggle = document.getElementById('doubanToggle');
     if (doubanToggle) {
-        // const isEnabled = localStorage.getItem('doubanEnabled') === 'true';
-        const isEnabled = localStorage.getItem('doubanEnabled') === null;
+        const isEnabled = localStorage.getItem('doubanEnabled') === 'true';
         doubanToggle.checked = isEnabled;
         
         // 设置开关外观
@@ -105,7 +104,7 @@ function initDouban() {
     setupDoubanRefreshBtn();
     
     // 初始加载热门内容
-    if (localStorage.getItem('doubanEnabled') === 'true') {
+    if (localStorage.getItem('doubanEnabled') === null) {
         renderRecommend(doubanCurrentTag, doubanPageSize, doubanPageStart);
     }
 }
