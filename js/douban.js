@@ -55,7 +55,8 @@ const doubanPageSize = 16; // 一次显示的项目数量
 
 // 初始化豆瓣功能
 function initDouban() {
-    // 设置豆瓣开关的初始状态
+    // 设置豆瓣开关的初始状态，默认为开启状态
+    if (localStorage.getItem('doubanEnabled') === null) { localStorage.setItem('doubanEnabled', 'true'); }
     const doubanToggle = document.getElementById('doubanToggle');
     if (doubanToggle) {
         const isEnabled = localStorage.getItem('doubanEnabled') === 'true';
@@ -104,7 +105,7 @@ function initDouban() {
     setupDoubanRefreshBtn();
     
     // 初始加载热门内容
-    if (localStorage.getItem('doubanEnabled') === null) {
+    if (localStorage.getItem('doubanEnabled') === 'true') {
         renderRecommend(doubanCurrentTag, doubanPageSize, doubanPageStart);
     }
 }
