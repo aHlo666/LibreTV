@@ -58,7 +58,8 @@ function initDouban() {
     // 设置豆瓣开关的初始状态
     const doubanToggle = document.getElementById('doubanToggle');
     if (doubanToggle) {
-        const isEnabled = localStorage.getItem('doubanEnabled') === 'true';
+        // const isEnabled = localStorage.getItem('doubanEnabled') === 'true';
+        const isEnabled = localStorage.getItem('doubanEnabled') === null;
         doubanToggle.checked = isEnabled;
         
         // 设置开关外观
